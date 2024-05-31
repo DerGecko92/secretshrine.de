@@ -42,6 +42,39 @@
             cursor: pointer;
         }
     </style>
+    <script>
+        (() => {
+            const blockEvent = e => {
+                if (e.type === 'contextmenu' ||
+                    e.keyCode === 123 || // F12
+                    (e.ctrlKey && (e.shiftKey && (e.keyCode === 73 || // Ctrl+Shift+I
+                                                  e.keyCode === 74 || // Ctrl+Shift+J
+                                                  e.keyCode === 67) || // Ctrl+Shift+C
+                                  e.keyCode === 85 || // Ctrl+U
+                                  e.keyCode === 83)) || // Ctrl+S
+                    (e.metaKey && e.altKey && e.keyCode === 73)) { // Cmd+Opt+I on Mac
+                    e.preventDefault();
+                    return false;
+                }
+            };
+            document.addEventListener('contextmenu', blockEvent);
+            document.addEventListener('keydown', blockEvent);
+            document.onkeydown = blockEvent;
+        })();
+
+        function submitQuiz() {
+            const correctAnswers = ["a Discord Event on a Server", "vivid/stasis"];
+            const selectedOptions = document.querySelectorAll('input[name="q1"]:checked');
+            const selectedValues = Array.from(selectedOptions).map(option => option.value);
+
+            const deniedMessage = document.getElementById('denied-message');
+            if (selectedValues.length === 2 && selectedValues.every(value => correctAnswers.includes(value))) {
+                window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/fifthshrine/q2';
+            } else {
+                deniedMessage.style.display = 'block';
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="quiz-container">
@@ -61,19 +94,5 @@
         </div>
         <div id="denied-message">DENIED</div>
     </div>
-    <script>
-        function submitQuiz() {
-            const correctAnswers = ["a Discord Event on a Server", "vivid/stasis"];
-            const selectedOptions = document.querySelectorAll('input[name="q1"]:checked');
-            const selectedValues = Array.from(selectedOptions).map(option => option.value);
-
-            const deniedMessage = document.getElementById('denied-message');
-            if (selectedValues.length === 2 && selectedValues.every(value => correctAnswers.includes(value))) {
-                window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/fifthshrine/q2';
-            } else {
-                deniedMessage.style.display = 'block';
-            }
-        }
-    </script>
 </body>
 </html>
