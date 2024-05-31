@@ -1,45 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4/8 - MCSA</title>
+    <title>Quiz Finished</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        html, body {
+            color: white; 
             background-color: black;
-            color: white;
+            font-family: Arial, sans-serif;
             padding: 20px;
         }
         .container {
             margin: 20px 0;
         }
-        .question {
-            margin-bottom: 20px;
-        }
-        .question h2 {
-            margin-bottom: 10px;
-        }
-        .options {
-            list-style-type: none;
-            padding: 0;
-        }
-        .options li {
-            margin-bottom: 10px;
-        }
-        #denied-message {
-            color: white;
-            margin-top: 10px;
-            display: none;
-        }
         input[type="button"] {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: white;
-            color: black;
-            border: none;
-            margin-top: 20px;
         }
     </style>
     <script>
@@ -61,37 +37,13 @@
             document.addEventListener('keydown', blockEvent);
             document.onkeydown = blockEvent;
         })();
-
-        function submitQuiz() {
-            const correctAnswer = "3";
-            const selectedOption = document.querySelector('input[name="q1"]:checked');
-            const deniedMessage = document.getElementById('denied-message');
-            
-            if (selectedOption && selectedOption.value === correctAnswer) {
-                window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/fifthshrine/q5';
-            } else {
-                deniedMessage.style.display = 'block';
-            }
-        }
     </script>
 </head>
 <body>
     <div class="container">
-        <div id="quiz">
-            <div class="question" id="question1">
-                <h2>What is the Origin of 92 in DerGecko92?</h2>
-                <ul class="options">
-                    <li><input type="radio" name="q1" value="1"> Year of Birth</li>
-                    <li><input type="radio" name="q1" value="2"> Atomic Number of Uranium</li>
-                    <li><input type="radio" name="q1" value="3"> Another Youtuber</li>
-                    <li><input type="radio" name="q1" value="4"> They just like the number</li>
-                </ul>
-            </div>
-            <div class="button-container">
-                <input type="button" value="Submit Answer" onclick="submitQuiz()">
-            </div>
-        </div>
-        <div id="denied-message">DENIED</div>
+        <p>Congratulations, you made it past the Knowledge Test!</p>
+	<p>The Word you are looking for is <b>"constant"</b></p>
+        <input type="button" value="Back to Main Room" onclick="window.location.href='https://dergecko92.github.io/secretshrine.de/secret1'">
     </div>
 </body>
 </html>
