@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYPE = KNOWLEDGE/LOGIC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            margin: 20px 0;
+        }
+        input[type="text"], input[type="button"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        input[type="button"] {
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+        }
+        #denied-message {
+            color: white;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+    <script>
+        function submitAnswer() {
+            const correctAnswer = "GitHub";
+            const userAnswer = document.getElementById('textInput').value;
+            const deniedMessage = document.getElementById('denied-message');
+            if (userAnswer === correctAnswer) {
+                window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/fifthshrine/q8';
+            } else {
+                deniedMessage.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>What is the name of the Provider that powers this site?<br>(One Word, Capitalization Matters)</h2>
+        <input type="text" id="textInput">
+        <input type="button" value="Submit Answer" onclick="submitAnswer()">
+        <div id="denied-message">DENIED</div>
+    </div>
+</body>
+</html>

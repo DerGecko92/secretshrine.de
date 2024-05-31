@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TYPE = LOGIC/PUZZLE</title>
+    <style>
+        html, body {
+            color: white; 
+            background-color: black;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            margin: 20px 0;
+        }
+        .riddle {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #denied-message {
+            color: white;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+    <script>
+        (() => {
+            const blockEvent = e => {
+                if (e.type === 'contextmenu' ||
+                    e.keyCode === 123 || // F12
+                    (e.ctrlKey && (e.shiftKey && (e.keyCode === 73 || // Ctrl+Shift+I
+                                                  e.keyCode === 74 || // Ctrl+Shift+J
+                                                  e.keyCode === 67) || // Ctrl+Shift+C
+                                  e.keyCode === 85 || // Ctrl+U
+                                  e.keyCode === 83)) || // Ctrl+S
+                    (e.metaKey && e.altKey && e.keyCode === 73)) { // Cmd+Opt+I on Mac
+                    e.preventDefault();
+                    return false;
+                }
+            };
+            document.addEventListener('contextmenu', blockEvent);
+            document.addEventListener('keydown', blockEvent);
+            document.onkeydown = blockEvent;
+        })();
+        
+        function validateResponse(expectedResponse, inputId) {
+            const inputElement = document.getElementById(inputId);
+            const deniedMessage = document.getElementById('denied-message');
+            if (inputElement.value.trim().toLowerCase() === expectedResponse.toLowerCase()) {
+                window.location.href = 'https://dergecko92.github.io/secretshrine/secret1/fourthshrine/sol4';
+            } else {
+                deniedMessage.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="riddle">
+            <p>I speak words you know, yet hear me you cannot</p>
+            <p>I have never done wrong, yet hang me they do</p>
+            <p>I am made out of wood, or stone, or plate</p>
+            <p>I can tell you the way, yet I don't know it myself</p>
+            <p>I do not convey thoughts, yet my mind lays open</p>
+            <p>I do not move on my own, yet sometimes I'm broken</p>
+            <p>My form is familiar, but recognize me you don't</p>
+            <p>What may I be, you may know or you won't.</p>
+        </div>
+        <input type="text" id="responseInput">
+        <input type="button" value="Submit" onclick="validateResponse('Sign', 'responseInput')">
+        <p id="denied-message">DENIED</p>
+    </div>
+</body>
+</html>

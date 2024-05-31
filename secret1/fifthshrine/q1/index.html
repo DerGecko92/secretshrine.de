@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/8 - MCMA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        .quiz-container {
+            margin: 20px 0;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h2 {
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        #denied-message {
+            color: white;
+            margin-top: 10px;
+            display: none;
+        }
+        input[type="text"], input[type="button"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="quiz">
+            <div class="question" id="question1">
+                <h2>What was this Site inspired by? (Choose 2)</h2>
+                <ul class="options">
+                    <li><input type="checkbox" name="q1" value="a Discord Event on a Server"> a Discord Event on a Server</li>
+                    <li><input type="checkbox" name="q1" value="An AI-conversation on c.ai"> An AI-conversation on c.ai</li>
+                    <li><input type="checkbox" name="q1" value="vivid/stasis"> vivid/stasis</li>
+                    <li><input type="checkbox" name="q1" value="A Minecraft Map"> A Minecraft Map</li>
+                </ul>
+            </div>
+            <div class="button-container">
+                <input type="button" value="Submit Answer" onclick="submitQuiz()">
+            </div>
+        </div>
+        <div id="denied-message">DENIED</div>
+    </div>
+    <script>
+        function submitQuiz() {
+            const correctAnswers = ["a Discord Event on a Server", "vivid/stasis"];
+            const selectedOptions = document.querySelectorAll('input[name="q1"]:checked');
+            const selectedValues = Array.from(selectedOptions).map(option => option.value);
+
+            const deniedMessage = document.getElementById('denied-message');
+            if (selectedValues.length === 2 && selectedValues.every(value => correctAnswers.includes(value))) {
+                window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/fifthshrine/q2';
+            } else {
+                deniedMessage.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

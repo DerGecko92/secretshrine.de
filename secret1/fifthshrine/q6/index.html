@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6/8 - MCSA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            margin: 20px 0;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h2 {
+            margin-bottom: 10px;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        #denied-message {
+            color: white;
+            margin-top: 10px;
+            display: none;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function submitQuiz() {
+            const correctAnswer = "2";
+            const selectedOption = document.querySelector('input[name="q1"]:checked');
+            const deniedMessage = document.getElementById('denied-message');
+            
+            if (selectedOption && selectedOption.value === correctAnswer) {
+                window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/fifthshrine/q7';
+            } else {
+                deniedMessage.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Assuming the Sun is the Size of a Football (Soccer Ball), how big would the Earth be?</h2>
+        <ul class="options">
+            <li><input type="radio" name="q1" value="1"> Tennis Ball</li>
+            <li><input type="radio" name="q1" value="2"> Grain of Rice</li>
+            <li><input type="radio" name="q1" value="3"> Atom</li>
+            <li><input type="radio" name="q1" value="4"> The Size of the Earth doesn't depend on the sun</li>
+        </ul>
+        <input type="button" value="Submit Answer" onclick="submitQuiz()">
+        <div id="denied-message">DENIED</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TYPE = LOGIC/CIPHER</title>
+    <style>
+        html, body {
+            color: white; 
+            background-color: black;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            margin: 20px 0;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        (() => {
+            const blockEvent = e => {
+                if (e.type === 'contextmenu' ||
+                    e.keyCode === 123 || // F12
+                    (e.ctrlKey && (e.shiftKey && (e.keyCode === 73 || // Ctrl+Shift+I
+                                                  e.keyCode === 74 || // Ctrl+Shift+J
+                                                  e.keyCode === 67) || // Ctrl+Shift+C
+                                  e.keyCode === 85 || // Ctrl+U
+                                  e.keyCode === 83)) || // Ctrl+S
+                    (e.metaKey && e.altKey && e.keyCode === 73)) { // Cmd+Opt+I on Mac
+                    e.preventDefault();
+                    return false;
+                }
+            };
+            document.addEventListener('contextmenu', blockEvent);
+            document.addEventListener('keydown', blockEvent);
+            document.onkeydown = blockEvent;
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+		<p color=black> this one might actually be unsolvable, as the key is missing
+        	<p>The indecipherable Cipher</p>
+        	<input type="button" value="biaf iek" onclick="window.location.href='https://dergecko92.github.io/secretshrine/secret1'">
+		<p color=black> you have probably seen the type of cipher here before
+    </div>
+</body>
+</html>

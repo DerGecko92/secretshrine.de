@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TYPE = LOGIC/CIPHER</title>
+    <style>
+        html, body {
+            color: white; 
+            background-color: black;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 5px;
+            justify-content: left;
+            align-items: left;
+        }
+        .grid-item {
+            display: flex;
+            align-items: center;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            margin-left: 5px;
+        }
+        input[type="button"] {
+            margin: 20px 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        label {
+            font-size: 18px;
+            margin-right: 5px;
+        }
+    </style>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            if (event.keyCode === 123 || (event.ctrlKey && event.shiftKey && event.keyCode === 73)) {
+                event.preventDefault();
+            }
+        });
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && 
+                (e.keyCode === 67 || 
+                e.keyCode === 86 || 
+                e.keyCode === 85 || 
+                e.keyCode === 83)) {
+                    event.preventDefault();
+                return false;
+            } else {
+                return true;
+            }
+        };
+        
+        function checkAnswers() {
+            const checkboxes = document.querySelectorAll('.grid-container input[type="checkbox"]');
+            const checkedIndices = [];
+            checkboxes.forEach((checkbox, index) => {
+                if (checkbox.checked) {
+                    checkedIndices.push(index + 1);
+                }
+            });
+            
+            const keyPattern = [2, 4, 6, 8];
+            const cluePattern = [1, 3, 5, 7, 9];
+            
+            if (JSON.stringify(checkedIndices) === JSON.stringify(keyPattern)) {
+                window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/firstshrine/key';
+            } else if (JSON.stringify(checkedIndices) === JSON.stringify(cluePattern)) {
+                window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/firstshrine/clue';
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>The chance to find the key has evened</p>
+    <p>Invert the Case to find the clue</p>
+    <div class="grid-container">
+        <div class="grid-item"><label for="cb1">1</label><input type="checkbox" id="cb1"></div>
+        <div class="grid-item"><label for="cb2">2</label><input type="checkbox" id="cb2"></div>
+        <div class="grid-item"><label for="cb3">3</label><input type="checkbox" id="cb3"></div>
+        <div class="grid-item"><label for="cb4">4</label><input type="checkbox" id="cb4"></div>
+        <div class="grid-item"><label for="cb5">5</label><input type="checkbox" id="cb5"></div>
+        <div class="grid-item"><label for="cb6">6</label><input type="checkbox" id="cb6"></div>
+        <div class="grid-item"><label for="cb7">7</label><input type="checkbox" id="cb7"></div>
+        <div class="grid-item"><label for="cb8">8</label><input type="checkbox" id="cb8"></div>
+        <div class="grid-item"><label for="cb9">9</label><input type="checkbox" id="cb9"></div>
+    </div>
+    <input type="button" value="Submit" onclick="checkAnswers()">
+    <input type="button" value="Finish" onclick="window.location.href='https://dergecko92.github.io/secretshrine.de/secret1'">
+</body>
+</html>

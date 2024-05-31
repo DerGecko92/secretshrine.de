@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>THE HUB</title>
+    <style>
+        html, body {
+            color: white; 
+            background-color: black;
+        }
+        .page {
+            height: 50px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 10px;
+            justify-content: left;
+            align-items: left;
+        }
+        .grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script src="preventActions.js" defer></script>
+    <script>
+        function validateInput(expectedToken, url, inputId) {
+            const inputElement = document.getElementById(inputId);
+            if (inputElement.value === expectedToken) {
+                window.location.href = url;
+            } else {
+                alert('INVALID TOKEN');
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Are you ready for the Challenge?</p>
+    <p>Are you prepared to face it?</p>
+    <p>Then enter, at your own risk...</p>
+    <div class="grid-container">
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge 1" onclick="validateInput('kltzrxjlgwex', 'https://dergecko92.github.io/secretshrine.de/secret1', 'Entry')"/>
+        </div>
+        <div class="grid-item">
+            <label for="Entry">Entry Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="Entry" maxlength="100">
+        </div>
+
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge 2" onclick="validateInput('Deception and Pain are your constant Companion now', 'https://dergecko92.github.io/secretshrine.de/secret2', 'C1')">
+        </div>
+        <div class="grid-item">
+            <label for="C1">Chal1 Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="C1" maxlength="100">
+        </div>
+
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge 3">
+        </div>
+        <div class="grid-item">
+            <label for="C2">Chal2 Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="C2" maxlength="100">
+        </div>
+
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge 4">
+        </div>
+        <div class="grid-item">
+            <label for="C3">Chal3 Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="C3" maxlength="100">
+        </div>
+
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge 5">
+        </div>
+        <div class="grid-item">
+            <label for="C4">Chal4 Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="C4" maxlength="100">
+        </div>
+
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge 6">
+        </div>
+        <div class="grid-item">
+            <label for="C5">Chal5 Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="C5" maxlength="100">
+        </div>
+
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge 7">
+        </div>
+        <div class="grid-item">
+            <label for="C6">Chal6 Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="C6" maxlength="100">
+        </div>
+
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge 8">
+        </div>
+        <div class="grid-item">
+            <label for="C7">Chal7 Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="C7" maxlength="100">
+        </div>
+
+        <div class="grid-item">
+            <input type="button" value="Enter Challenge S">
+        </div>
+        <div class="grid-item">
+            <label for="Secret">Fract Token:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" id="Secret" maxlength="100">
+        </div>
+    </div>
+</body>
+</html>
