@@ -63,9 +63,9 @@
             const falseChecked = document.getElementById('falseOption').checked;
             const deniedMessage = document.getElementById('denied-message');
 
-            if ((trueChecked && falseChecked) || (!trueChecked && !falseChecked)) {
+            if (trueChecked && falseChecked) {
                 window.location.href = 'https://dergecko92.github.io/secretshrine.de/secret1/fifthshrine/finish';
-            } else if (!trueChecked && falseChecked) {
+            } else {
                 deniedMessage.style.display = 'block';
             }
         }
@@ -73,4 +73,13 @@
 </head>
 <body>
     <div class="container">
-        <h2>The Answer to this Question is "
+        <h2>The Answer to this Question is "False".</h2>
+        <ul class="options">
+            <li><input type="checkbox" id="trueOption"> True</li>
+            <li><input type="checkbox" id="falseOption"> False</li>
+        </ul>
+        <input type="button" value="Submit Answer" onclick="submitAnswer()">
+        <div id="denied-message">DENIED</div>
+    </div>
+</body>
+</html>
