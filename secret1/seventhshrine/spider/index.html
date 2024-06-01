@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completion of Shrine Seven</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        (() => {
+            const blockEvent = e => {
+                if (e.type === 'contextmenu' ||
+                    e.keyCode === 123 || // F12
+                    (e.ctrlKey && (e.shiftKey && (e.keyCode === 73 || // Ctrl+Shift+I
+                                                  e.keyCode === 74 || // Ctrl+Shift+J
+                                                  e.keyCode === 67) || // Ctrl+Shift+C
+                                  e.keyCode === 85 || // Ctrl+U
+                                  e.keyCode === 83)) || // Ctrl+S
+                    (e.metaKey && e.altKey && e.keyCode === 73)) { // Cmd+Opt+I on Mac
+                    e.preventDefault();
+                    return false;
+                }
+            };
+            document.addEventListener('contextmenu', blockEvent);
+            document.addEventListener('keydown', blockEvent);
+            document.onkeydown = blockEvent;
+        })();
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>You have fulfilled your purpose of solving Shrine Seven<br>
+        Now you can ascend to the puzzle of heaven<br>
+        The Answer of the Riddle is this simple word,<br>
+        An answer you've probably often heard:</h2>
+        <input type="button" value="Now" onclick="location.href='https://dergecko92.github.io/secretshrine.de/secret1'">
+    </div>
+</body>
+</html>
